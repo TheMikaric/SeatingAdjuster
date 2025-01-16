@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__) # It's named like the Python file
 Scss(app)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
 # Class -- row of data
@@ -17,6 +18,8 @@ class MyPerson(db.Model):
     def __repr__(self) -> str:
         return f'Person with ID of {self.id}, is named {self.name} and is in the team {self.team}'
 
+with app.app_context():
+    db.create_all()
 
 @app.route('/',methods=["POST","GET"]) # Homepage
 def index():
@@ -64,8 +67,6 @@ def edit(id:int):
     else:
         return render_template('edit.html', person=person)
     
-if __name__ in "__main__":
-    with app.app_context():
-        db.create_all()
+if __name__ == "__main__":
 
     app.run(debug=True) # Debugger is on so Flask updates itself
