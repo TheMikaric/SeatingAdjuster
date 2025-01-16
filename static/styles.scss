@@ -31,5 +31,45 @@ body{
         margin-top: 20px;
         border-collapse: collapse;
         
+        th, td{ /*Apply to both table headers and table datsa*/
+            padding: 10px;
+            border: 1px solid #ccc;
+
+            th{ /*Apply only to table headers, this is valid syntax*/
+                background-color: $title_color;
+                color: $primary_color;
+            }
+        }
+
+        a{
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 20px;
+            background-color: $primary_color;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+
+            &:hover{
+                background-color: $sucess_hover_color;
+            }
+        }
+    }
+
+    input{
+        padding:10px;
+        margin: 5px;
+        border: solid 1px;
+        border-radius: 5px;
+    }
+
+    btn_submit{
+        background-color: $sucess_color;
+        color: fff;
+        cursor: pointer;
+        &hover{
+            background-color: $sucess_hover_color;
+        }
     }
 }

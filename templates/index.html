@@ -17,22 +17,23 @@
             <th>Id</th>
             <th>Name</th>
             <th>Теаm</th>
+            <th>Actions</th>
         </tr>
         {% for person in persons %}
             <tr>
                 <td>{{person.id}}</td>
                 <td>{{person.name}}</td>
                 <td>{{person.team }}</td>
-                <td><a href="/delete/{{person.id}}">Delete</a></td>
-                <!-- <br/>  -->
-                <td><a href="/edit/{{person.id}}">Edit</a></td>
+                <td><a href="/delete/{{person.id}}">Delete</a>
+                <br/>
+                <a href="/edit/{{person.id}}">Edit</a></td>
             </tr>
         {% endfor %}
     </table>
     {% endif %}
 
 
-    <table>
+    <!--<table>
         <tr>
             <th>Office</th>
             <th>Room</th>
@@ -45,7 +46,7 @@
             <th>C</th>
             <th>D</th>
         </tr>
-    </table>
+    </table> -->
     <form action="/" method="POST">
         <input type="text" name="name" id="name"/>
         <input type="submit" value="Submit",id="btn_submit"/>

@@ -22,4 +22,39 @@ body {
   width: 100%;
   margin-top: 20px;
   border-collapse: collapse;
+}
+.content table th, .content table td { /*Apply to both table headers and table datsa*/
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.content table th th, .content table td th { /*Apply only to table headers, this is valid syntax*/
+  background-color: #4F3333;
+  color: #dfefff;
+}
+.content table a {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 20px;
+  background-color: #dfefff;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.content table a:hover {
+  background-color: #ddffdd;
+}
+.content input {
+  padding: 10px;
+  margin: 5px;
+  border: solid 1px;
+  border-radius: 5px;
+}
+.content btn_submit {
+  background-color: #aaeebb;
+  color: fff;
+  cursor: pointer;
+}
+.content btn_submithover {
+  background-color: #ddffdd;
 }/*# sourceMappingURL=styles.css.map */
