@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, request
 from flask_scss import Scss
 from flask_sqlalchemy import SQLAlchemy
 
@@ -20,9 +20,50 @@ class MyPerson(db.Model):
 
 @app.route('/',methods=["POST","GET"]) # Homepage
 def index():
-    return render_template('index.html')
+    # Add a person to the database
+    if request.method == "POST":
+        name = request.form['name']
+        new_person = MyPerson(name=name,team='TecMinds')    
+        try:
+            db.session.add(new_person)
+            db.session.commit() # Actually commit that to the database
+            return redirect('/')
+        except Exception as e:
+            print(f'Error: {e}')
+            return f'Error: {e}'
+        
+    # Get all the people from the database
+    else:
+        persons = MyPerson.query.order_by(MyPerson.id).all()
+        return render_template('index.html', persons=persons)
 
+# Delete a person from the database
+@app.route("/delete/<int:id>")
+def delete(id:int):
+    delete_person = MyPerson.query.get_or_404(id)
+    try:
+        db.session.delete(delete_person)
+        db.session.commit()
+        return redirect("/")
+    except Exception as e:
+        print(f'Error: {e}')
+        return f'Error: {e}'
 
+#Edit an item
+@app.route("/edit/<int:id>",methods=["POST","GET"])
+def edit(id:int):
+    person = MyPerson.query.get_or_404(id)
+    if request.method == "POST":
+        person.name = request.form['name']
+        try:
+            db.session.commit()
+            return redirect('/')
+        except Exception as e:
+            print(f'Error: {e}')
+            return f'Error: {e}' 
+    else:
+        return render_template('edit.html', person=person)
+    
 if __name__ in "__main__":
     with app.app_context():
         db.create_all()

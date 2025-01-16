@@ -1,3 +1,35 @@
+// Color variables
+$primary_color: #dfefff;
+$secondary_color: #ffffe5;
+$sucess_color: #aaeebb;
+$sucess_hover_color: #ddffdd;
+$title_color: #4F3333;
+
 body{
-    background-color: wheat;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: $primary_color;
+}
+
+.content {
+    width:100%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: $secondary_color;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    text-align: center;
+
+    h1{ /* Apply the following to h1s inside the content */
+        color: $title_color;
+    }
+
+    table{
+        width:100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        
+    }
 }
