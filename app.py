@@ -21,8 +21,8 @@ class MyPerson(db.Model):
 with app.app_context():
     db.create_all()
 
-@app.route('/',methods=["POST","GET"]) # Homepage
-def index():
+@app.route('/create/person',methods=["POST","GET"]) # Create a person
+def create_a_person():
     # Add a person to the database
     if request.method == "POST":
         name = request.form['name']
@@ -30,7 +30,7 @@ def index():
         try:
             db.session.add(new_person)
             db.session.commit() # Actually commit that to the database
-            return redirect('/')
+            return redirect('/create/person')
         except Exception as e:
             print(f'Error: {e}')
             return f'Error: {e}'
@@ -38,34 +38,39 @@ def index():
     # Get all the people from the database
     else:
         persons = MyPerson.query.order_by(MyPerson.id).all()
-        return render_template('index.html', persons=persons)
+        return render_template('create_person.html', persons=persons)
+
+
+@app.route('/',methods=["POST","GET"]) # Homepage
+def index():
+    return render_template('index.html')
 
 # Delete a person from the database
-@app.route("/delete/<int:id>")
+@app.route("/delete/person/<int:id>")
 def delete(id:int):
     delete_person = MyPerson.query.get_or_404(id)
     try:
         db.session.delete(delete_person)
         db.session.commit()
-        return redirect("/")
+        return redirect("/create_person")
     except Exception as e:
         print(f'Error: {e}')
         return f'Error: {e}'
 
 #Edit an item
-@app.route("/edit/<int:id>",methods=["POST","GET"])
+@app.route("/edit/person/<int:id>",methods=["POST","GET"])
 def edit(id:int):
     person = MyPerson.query.get_or_404(id)
     if request.method == "POST":
         person.name = request.form['name']
         try:
             db.session.commit()
-            return redirect('/')
+            return redirect('/create/person')
         except Exception as e:
             print(f'Error: {e}')
             return f'Error: {e}' 
     else:
-        return render_template('edit.html', person=person)
+        return render_template('edit_person.html', person=person)
     
 if __name__ == "__main__":
 
