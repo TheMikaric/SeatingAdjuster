@@ -1,26 +1,44 @@
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column1 {
+  flex: 10%;
+  padding: 30px;
+}
+
+.column2 {
+  flex: 100%;
+  padding: 30px;
+}
+
 body {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #dfefff;
+  background-color: #FAF7EB;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .content {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
+  min-width: 600px;
   margin: 50px auto;
   padding: 20px;
-  background-color: #ffffe5;
+  background-color: #F6E7CB;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 .content h1 { /* Apply the following to h1s inside the content */
-  color: #4F3333;
+  color: #3B322C;
 }
 .content table {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 30px;
   border-collapse: collapse;
 }
 .content table th, .content table td { /*Apply to both table headers and table datsa*/
@@ -28,33 +46,35 @@ body {
   border: 1px solid #ccc;
 }
 .content table th th, .content table td th { /*Apply only to table headers, this is valid syntax*/
-  background-color: #4F3333;
-  color: #dfefff;
+  background-color: #F6E7CB;
+  color: #3B322C;
 }
 .content table a {
   display: inline-block;
   padding: 8px 16px;
   margin: 5px;
   border-radius: 20px;
-  background-color: #dfefff;
-  color: #fff;
+  background-color: #FAF7EB;
+  color: #3B322C;
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
 .content table a:hover {
-  background-color: #ddffdd;
+  background-color: #FAF7EB;
 }
 .content input {
-  padding: 10px;
+  padding: 20px;
   margin: 5px;
-  border: solid 1px;
-  border-radius: 5px;
+  margin-top: 30px;
+  border: solid 2px;
+  border-radius: 10px;
 }
-.content btn_submit {
-  background-color: #aaeebb;
-  color: fff;
+.content .btn_submit, .content .name {
+  margin-top: 3px;
+  background-color: #4C9F70;
+  color: #F6E7CB;
   cursor: pointer;
 }
-.content btn_submithover {
-  background-color: #ddffdd;
+.content .btn_submithover, .content .namehover {
+  background-color: #214531;
 }/*# sourceMappingURL=styles.css.map */

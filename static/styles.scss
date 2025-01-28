@@ -1,34 +1,52 @@
 // Color variables
-$primary_color: #dfefff;
-$secondary_color: #ffffe5;
-$sucess_color: #aaeebb;
-$sucess_hover_color: #ddffdd;
-$title_color: #4F3333;
+$plain_light_background: #FAF7EB;
+$light_background: #F6E7CB;
+$dark_text: #3B322C;
+$light_green: #4C9F70;
+$dark_green: #214531;
+
+.row {
+    display: flex;
+  }
+  
+  /* Create two equal columns that sits next to each other */
+.column1 {
+    flex: 10%;
+    padding: 30px;
+}
+
+.column2 {
+    flex: 100%;
+    padding: 30px;
+}
 
 body{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: $primary_color;
+    background-color: $plain_light_background;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .content {
     width:100%;
-    max-width: 800px;
+    max-width: 1200px;
+    min-width: 600px;
     margin: 50px auto;
     padding: 20px;
-    background-color: $secondary_color;
+    background-color: $light_background;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
     text-align: center;
 
     h1{ /* Apply the following to h1s inside the content */
-        color: $title_color;
+        color: $dark_text;
     }
 
     table{
         width:100%;
-        margin-top: 20px;
+        margin-top: 30px;
         border-collapse: collapse;
         
         th, td{ /*Apply to both table headers and table datsa*/
@@ -36,8 +54,8 @@ body{
             border: 1px solid #ccc;
 
             th{ /*Apply only to table headers, this is valid syntax*/
-                background-color: $title_color;
-                color: $primary_color;
+                background-color: $light_background;
+                color: $dark_text;
             }
         }
 
@@ -46,30 +64,32 @@ body{
             padding: 8px 16px;
             margin: 5px;
             border-radius: 20px;
-            background-color: $primary_color;
-            color: #fff;
+            background-color: $plain_light_background;
+            color: $dark_text;
             text-decoration: none;
             transition: background-color 0.3s ease;
 
             &:hover{
-                background-color: $sucess_hover_color;
+                background-color: $plain_light_background;
             }
         }
     }
 
     input{
-        padding:10px;
+        padding:20px;
         margin: 5px;
-        border: solid 1px;
-        border-radius: 5px;
+        margin-top: 30px;
+        border: solid 2px;
+        border-radius: 10px;
     }
 
-    btn_submit{
-        background-color: $sucess_color;
-        color: fff;
+    .btn_submit,.name{
+        margin-top: 3px;
+        background-color: $light_green;
+        color: $light_background;
         cursor: pointer;
         &hover{
-            background-color: $sucess_hover_color;
+            background-color: $dark_green;
         }
     }
 }
