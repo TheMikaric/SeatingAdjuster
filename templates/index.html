@@ -1,55 +1,9 @@
 {%extends 'base.html'%}
 
-{% block head %}
-<title>Seating Adjuster</title>
-{% endblock %}
+{%block head%}
+<title>SeatingAdjuster</title>
+{%endblock%}
 
 {%block body%}
-<h1>Hello</h1>
-<p> By Dimitrije Mikarić, 2025</p>
-<div class="content">
-    <h1>The Chart</h1>
-    {% if persons | length < 1 %}
-    <h3>There's nobody in the team... Add one!</h3>
-    {% else %}
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Теаm</th>
-            <th>Actions</th>
-        </tr>
-        {% for person in persons %}
-            <tr>
-                <td>{{person.id}}</td>
-                <td>{{person.name}}</td>
-                <td>{{person.team }}</td>
-                <td><a href="/delete/{{person.id}}">Delete</a>
-                <br/>
-                <a href="/edit/{{person.id}}">Edit</a></td>
-            </tr>
-        {% endfor %}
-    </table>
-    {% endif %}
-
-
-    <!--<table>
-        <tr>
-            <th>Office</th>
-            <th>Room</th>
-            <th>Row</th>
-            <th>Name</th>
-        </tr>
-        <tr>
-            <th>A</th>
-            <th>B</th>
-            <th>C</th>
-            <th>D</th>
-        </tr>
-    </table> -->
-    <form action="/" method="POST">
-        <input type="text" name="name" id="name"/>
-        <input type="submit" value="Submit",id="btn_submit"/>
-    </form>
-</div>
+<a href="/create/person">Create a person</a>
 {%endblock%}
